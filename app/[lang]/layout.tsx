@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Space_Mono } from "next/font/google";
-import { DICTIONARIES, LINKS, LOCALES, SITE, type Locale } from "../dictionaries";
+import {
+  DICTIONARIES,
+  GBP,
+  LINKS,
+  LOCALES,
+  SITE,
+  type Locale,
+} from "../dictionaries";
 import "../globals.css";
 
 const fraunces = Fraunces({
@@ -101,7 +108,25 @@ function jsonLd(lang: Locale) {
           addressCountry: "RO",
         },
         knowsLanguage: ["en", "ro", "hu"],
-        sameAs: LINKS.map((l) => l.href),
+        // The Google Business Profile is listed alongside the social profiles
+        // so Google can resolve site, socials and map listing to one entity.
+        sameAs: [...LINKS.map((l) => l.href), GBP.url],
+        hasMap: GBP.url,
+        location: {
+          "@type": "Place",
+          name: "Hanga Macrame",
+          hasMap: GBP.url,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Cluj-Napoca",
+            addressCountry: "RO",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: GBP.lat,
+            longitude: GBP.lng,
+          },
+        },
       },
       {
         "@type": "WebSite",

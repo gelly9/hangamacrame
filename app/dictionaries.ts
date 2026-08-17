@@ -67,3 +67,10 @@ export const LINKS = [
 ] as const;
 
 export const SITE = "https://hangamacrame.com";
+
+/** Verified Google Business Profile. Coordinates read from its Maps URL. */
+export const GBP = {
+  url: "https://maps.app.goo.gl/xFu1bfcvhmfS2C3cA",
+  lat: 46.7767743,
+  lng: 23.6086345,
+} as const;
