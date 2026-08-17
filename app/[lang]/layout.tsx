@@ -79,10 +79,17 @@ export async function generateMetadata({
 }
 
 /**
- * Structured data. Deliberately conservative: it asserts only what is verified
- * — the name, the city, the logo, the languages, and the four social profiles.
- * No phone, email, opening hours, price range or street address, because those
- * are not known and inventing them would be worse than omitting them.
+ * Structured data — and on this site, the load-bearing part of the page.
+ *
+ * The rendered page contains 19 words of text. Everything a machine can learn
+ * about the business comes from this graph, so it is deliberately fuller than
+ * a marketing page's would be.
+ *
+ * Every value is verified against the Google Business Profile or the public
+ * channels in `sameAs`. Still deliberately absent:
+ *   - aggregateRating: the 5.0/15 belongs to Google's reviews. Restating it as
+ *     first-party markup breaches Google's guidelines and risks a penalty.
+ *   - email, price range: not known, and inventing them is worse than omitting.
  */
 function jsonLd(lang: Locale) {
   const t = DICTIONARIES[lang];
@@ -132,6 +139,26 @@ function jsonLd(lang: Locale) {
           longitude: GBP.lng,
         },
         knowsLanguage: ["en", "ro", "hu"],
+        // The visible page carries 19 words, so this graph is the only thing
+        // telling a machine what the business actually is. Every term below is
+        // verifiable from the public channels linked in sameAs.
+        knowsAbout: [
+          "Macramé",
+          "Macramé wall hangings",
+          "Macramé plant hangers",
+          "Macramé patterns",
+          "Macramé tutorials",
+          "Fibre art",
+          "Handmade home decor",
+        ],
+        founder: {
+          "@type": "Person",
+          "@id": `${SITE}/#hanga`,
+          name: "Hanga",
+          jobTitle: "Macramé artist",
+          worksFor: { "@id": `${SITE}/#organization` },
+          sameAs: LINKS.map((l) => l.href),
+        },
         // The Google Business Profile is listed alongside the social profiles
         // so Google can resolve site, socials and map listing to one entity.
         sameAs: [...LINKS.map((l) => l.href), GBP.url],
