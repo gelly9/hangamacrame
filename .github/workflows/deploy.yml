@@ -29,11 +29,10 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # `enablement` turns Pages on for the repo on first run, so this
-      # workflow does not depend on the setting being flipped by hand.
+      # Pages must already be enabled with build_type=workflow. GITHUB_TOKEN
+      # cannot create the Pages site itself ("Resource not accessible by
+      # integration"), so `enablement: true` does not help here.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
