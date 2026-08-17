@@ -90,7 +90,9 @@ function jsonLd(lang: Locale) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        // LocalBusiness rather than plain Organization now that the Business
+        // Profile confirms a street address, phone and opening hours.
+        "@type": "LocalBusiness",
         "@id": `${SITE}/#organization`,
         name: "Hanga Macrame",
         url: SITE,
@@ -104,8 +106,16 @@ function jsonLd(lang: Locale) {
         image: `${SITE}/og-${lang}.png`,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Cluj-Napoca",
-          addressCountry: "RO",
+          streetAddress: GBP.street,
+          postalCode: GBP.postalCode,
+          addressLocality: GBP.locality,
+          addressCountry: GBP.country,
+        },
+        telephone: GBP.telephone,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: GBP.lat,
+          longitude: GBP.lng,
         },
         knowsLanguage: ["en", "ro", "hu"],
         // The Google Business Profile is listed alongside the social profiles
@@ -118,8 +128,10 @@ function jsonLd(lang: Locale) {
           hasMap: GBP.url,
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Cluj-Napoca",
-            addressCountry: "RO",
+            streetAddress: GBP.street,
+            postalCode: GBP.postalCode,
+            addressLocality: GBP.locality,
+            addressCountry: GBP.country,
           },
           geo: {
             "@type": "GeoCoordinates",

@@ -68,9 +68,18 @@ export const LINKS = [
 
 export const SITE = "https://hangamacrame.com";
 
-/** Verified Google Business Profile. Coordinates read from its Maps URL. */
+/**
+ * Verified from the Google Business Profile. These MUST stay byte-identical
+ * to what the profile shows — mismatched name/address/phone between a site and
+ * its listing actively harms local ranking, which is the opposite of the point.
+ */
 export const GBP = {
   url: "https://maps.app.goo.gl/xFu1bfcvhmfS2C3cA",
   lat: 46.7767743,
   lng: 23.6086345,
+  street: "Bulevardul 21 Decembrie 1989 140",
+  postalCode: "400689",
+  locality: "Cluj-Napoca",
+  country: "RO",
+  telephone: "+40754336703",
 } as const;
