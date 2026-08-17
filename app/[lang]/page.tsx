@@ -13,26 +13,26 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 
   return (
     <main className="flex-1 flex flex-col">
-      <section className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
+      <section className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6 py-8 text-center sm:px-10 sm:py-[min(3rem,4vh)]">
         <Image
           src="/logo.webp"
           alt="Hanga Macrame"
           width={700}
           height={922}
           priority
-          className="rise w-[168px] sm:w-[190px]"
+          className="rise w-[132px] sm:w-[min(190px,20vh)]"
           style={{ animationDelay: "0.1s" }}
         />
 
         <p
-          className="rise mt-16 font-mono text-[10px] uppercase tracking-[0.28em] text-brass"
+          className="rise mt-8 font-mono text-[10px] sm:mt-[min(4rem,6vh)] uppercase tracking-[0.28em] text-brass"
           style={{ animationDelay: "0.42s" }}
         >
           {t.eyebrow}
         </p>
 
         <h1
-          className="rise mt-8 font-display text-[2.6rem] leading-[1.06] tracking-[-0.02em] text-balance sm:text-[3.8rem]"
+          className="rise mt-5 font-display text-[2.05rem] leading-[1.06] tracking-[-0.02em] text-balance sm:mt-[min(2rem,3vh)] sm:text-[min(3.8rem,7vh)]"
           style={{ animationDelay: "0.54s" }}
         >
           {t.headline[0]}
@@ -40,7 +40,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           {t.headline[1]}
         </h1>
 
-        <div className="rise mt-18 w-full" style={{ animationDelay: "0.66s" }}>
+        <div className="rise mt-10 w-full sm:mt-[min(4.5rem,6vh)]" style={{ animationDelay: "0.66s" }}>
           <KnotRule delay={0.78} />
         </div>
 
@@ -48,7 +48,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
             readers. Padding takes each hitbox to 36px — the glyph stays 20px. */}
         <nav
           aria-label="Elsewhere"
-          className="rise mt-18 flex items-center justify-center gap-6"
+          className="rise mt-10 flex items-center justify-center gap-6 sm:mt-[min(4.5rem,6vh)]"
           style={{ animationDelay: "1.03s" }}
         >
           {LINKS.map((link) => (
@@ -66,7 +66,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </nav>
       </section>
 
-      <footer className="mx-auto w-full max-w-2xl px-6 pb-8 text-center">
+      <footer className="mx-auto w-full max-w-2xl px-6 pb-6 text-center sm:pb-8">
         {/* The switcher lives down here so the logo owns the top of the page. */}
         <nav
           aria-label="Language"
@@ -98,7 +98,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           })}
         </nav>
 
-        <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-cord-dim">
+        <p className="mt-4 font-mono text-[10px] sm:mt-5 uppercase tracking-[0.22em] text-cord-dim">
           © Hanga Macrame · {t.footer}
         </p>
       </footer>
