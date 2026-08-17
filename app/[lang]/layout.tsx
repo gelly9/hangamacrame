@@ -185,6 +185,15 @@ export default async function RootLayout({
             __html: JSON.stringify(jsonLd(lang as Locale)),
           }}
         />
+        {/* Cloudflare Web Analytics. Installed manually rather than injected by
+            the proxy: the DNS records are grey-cloud so GitHub can hold the TLS
+            certificate, which means Cloudflare never sees the HTML. No cookies,
+            so no consent banner is needed. The token is public by design. */}
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "b30928836df946e99499b8564a09d4f9"}'
+        />
       </body>
     </html>
   );
