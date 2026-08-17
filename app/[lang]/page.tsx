@@ -16,7 +16,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       <section className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6 py-8 text-center sm:px-10 sm:py-[min(3rem,4vh)]">
         <Image
           src="/logo.webp"
-          alt="Hanga Macrame"
+          alt="Hanga Macrame — a hand-drawn macramé wall hanging above the wordmark"
           width={700}
           height={922}
           priority
@@ -77,7 +77,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
             return (
               <span key={code} className="flex items-center">
                 {i > 0 && (
-                  <span aria-hidden="true" className="text-cord-dim/40">
+                  <span aria-hidden="true" className="font-mono text-cord-dim/40">
                     ·
                   </span>
                 )}

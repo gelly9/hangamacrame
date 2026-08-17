@@ -20,7 +20,7 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
   en: {
     htmlTitle: "Hanga Macrame — hand-knotted wall art from Cluj-Napoca",
     htmlDescription:
-      "Handmade macramé wall art, patterns and tutorials by Hanga. A new home for the work is being built.",
+      "Handmade macramé wall art, plant hangers and patterns by Hanga, hand-knotted in Cluj-Napoca. Tutorials on YouTube and Patreon. The new website is on its way.",
     eyebrow: "New website coming soon",
     headline: ["Something is being", "tied together."],
     footer: "Hand-knotted",
@@ -28,7 +28,7 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
   ro: {
     htmlTitle: "Hanga Macrame — artă murală înnodată manual, din Cluj-Napoca",
     htmlDescription:
-      "Macrame lucrat manual, modele și tutoriale de Hanga. Se construiește o casă nouă pentru toate acestea.",
+      "Artă murală macrame lucrată manual, suporturi pentru plante și modele de Hanga, înnodate la Cluj-Napoca. Tutoriale pe YouTube și Patreon. Noul site vine curând.",
     eyebrow: "Noul site, în curând",
     headline: ["Se înnoadă", "ceva nou."],
     footer: "Înnodat manual",
@@ -36,7 +36,7 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
   hu: {
     htmlTitle: "Hanga Macrame — kézzel csomózott faldísz Kolozsvárról",
     htmlDescription:
-      "Kézzel készült makramé faldíszek, minták és útmutatók Hangától. Épül az új otthonuk.",
+      "Kézzel csomózott makramé faldíszek, növénytartók és minták Hangától, Kolozsváron. Útmutatók a YouTube-on és a Patreonon. Az új weboldal hamarosan érkezik.",
     eyebrow: "Hamarosan új weboldal",
     headline: ["Csomóról csomóra", "készül valami."],
     footer: "Kézzel csomózva",

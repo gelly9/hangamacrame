@@ -1,16 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Karla, Space_Mono } from "next/font/google";
+import { Fraunces, Space_Mono } from "next/font/google";
 import { DICTIONARIES, LINKS, LOCALES, SITE, type Locale } from "../dictionaries";
 import "../globals.css";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-});
-
-const karla = Karla({
-  variable: "--font-karla",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -130,7 +124,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${fraunces.variable} ${karla.variable} ${spaceMono.variable} h-full`}
+      className={`${fraunces.variable} ${spaceMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
         {children}
