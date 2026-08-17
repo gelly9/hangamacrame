@@ -99,7 +99,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </nav>
 
         <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-cord-dim">
-          © {new Date().getFullYear()} Hanga Macrame · {t.footer}
+          © Hanga Macrame · {t.footer}
         </p>
       </footer>
     </main>
