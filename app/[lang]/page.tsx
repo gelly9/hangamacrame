@@ -25,7 +25,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         />
 
         <p
-          className="rise mt-8 font-mono text-[10px] sm:mt-[min(4rem,6vh)] uppercase tracking-[0.28em] text-brass"
+          className="rise mt-8 font-mono text-[12px] sm:mt-[min(4rem,6vh)] sm:text-[13px] uppercase tracking-[0.28em] text-brass"
           style={{ animationDelay: "0.42s" }}
         >
           {t.eyebrow}
