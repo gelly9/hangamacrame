@@ -9,7 +9,6 @@ export type Dictionary = {
   eyebrow: string;
   /** Split across two lines in the display face. */
   headline: [string, string];
-  linksLabel: string;
   footer: string;
 };
 
@@ -24,7 +23,6 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
       "Handmade macramé wall art, patterns and tutorials by Hanga. A new home for the work is being built.",
     eyebrow: "New website coming soon",
     headline: ["Something is being", "tied together."],
-    linksLabel: "In the meantime",
     footer: "Hand-knotted",
   },
   ro: {
@@ -33,7 +31,6 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
       "Macrame lucrat manual, modele și tutoriale de Hanga. Se construiește o casă nouă pentru toate acestea.",
     eyebrow: "Noul site, în curând",
     headline: ["Se înnoadă", "ceva nou."],
-    linksLabel: "Până atunci",
     footer: "Înnodat manual",
   },
   hu: {
@@ -42,16 +39,31 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
       "Kézzel készült makramé faldíszek, minták és útmutatók Hangától. Épül az új otthonuk.",
     eyebrow: "Hamarosan új weboldal",
     headline: ["Csomóról csomóra", "készül valami."],
-    linksLabel: "Addig is",
     footer: "Kézzel csomózva",
   },
 };
 
 export const LINKS = [
-  { name: "Instagram", href: "https://www.instagram.com/hanga.macrame/" },
-  { name: "YouTube", href: "https://www.youtube.com/@hangamacrame" },
-  { name: "Facebook", href: "https://www.facebook.com/hanga.macrame" },
-  { name: "Patreon", href: "https://www.patreon.com/HangaMacrame" },
-];
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/hanga.macrame/",
+    icon: "instagram",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@hangamacrame",
+    icon: "youtube",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/hanga.macrame",
+    icon: "facebook",
+  },
+  {
+    name: "Patreon",
+    href: "https://www.patreon.com/HangaMacrame",
+    icon: "patreon",
+  },
+] as const;
 
 export const SITE = "https://hangamacrame.com";

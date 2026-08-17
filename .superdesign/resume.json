@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/[lang]": {
+      "targetKind": "existing-ui",
+      "projectId": "c965430e-1608-45ef-8b75-22b3b7b2e0d9",
+      "baselineDraftId": "634b2714-7600-4c93-aa69-c49e18577528",
+      "activeDraftId": "9aaade76-184a-451d-894b-ed2f63547cd9",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "app/[lang]/page.tsx",
+        "app/knot-net.tsx",
+        "app/dictionaries.ts",
+        "app/[lang]/layout.tsx",
+        "app/globals.css"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "73aa17c30526c78320580ecc1411cb26019dc11c4ddafea773bf19e55e0e40d3",
+        "app/[lang]/page.tsx": "689faa1735359031bac4515162113078aa239893472392c947c62f5cac6cf06d",
+        "app/knot-net.tsx": "0470864c9e6fb374fd4b6b2c3bf0dcfe35be7aa63cb6a861457e391604b0bd15",
+        "app/dictionaries.ts": "3d74cd95dcf666e303c449192a79c3b9be8cd072e90ca8daf9c0abeec9943ec9",
+        "app/[lang]/layout.tsx": "828385fa8b7102427cbc1cd658d6f8c7e75f7564b69119436cfcef1237ae371c",
+        "app/globals.css": "3823b9768424b4981db75f1beba4eb829691ad31f46e3dec47d4faa49f561283"
+      },
+      "components": [],
+      "drafts": {
+        "634b2714-7600-4c93-aa69-c49e18577528": {
+          "title": "Current \u2014 coming soon page",
+          "visualDirection": "faithful reproduction of the live page (ground truth)",
+          "currentVersion": 1
+        },
+        "9aaade76-184a-451d-894b-ed2f63547cd9": {
+          "title": "Hanga Macrame \u2014 Minimal Icon Navigation",
+          "visualDirection": "icon-only social row; label dropped; logo + headline enlarged; poster rhythm",
+          "parentDraftId": "634b2714-7600-4c93-aa69-c49e18577528",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-08-17T12:09:12.575044+00:00"
+    }
+  }
+}

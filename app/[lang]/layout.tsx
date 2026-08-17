@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Karla, Space_Mono } from "next/font/google";
-import { DICTIONARIES, LOCALES, SITE, type Locale } from "../dictionaries";
+import { DICTIONARIES, LINKS, LOCALES, SITE, type Locale } from "../dictionaries";
 import "../globals.css";
 
 const fraunces = Fraunces({
@@ -64,14 +64,60 @@ export async function generateMetadata({
       locale: { en: "en_GB", ro: "ro_RO", hu: "hu_HU" }[lang],
       title: t.htmlTitle,
       description: t.htmlDescription,
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Hanga Macrame" }],
+      images: [
+        { url: `/og-${lang}.png`, width: 1200, height: 630, alt: "Hanga Macrame" },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: t.htmlTitle,
       description: t.htmlDescription,
-      images: ["/og.png"],
+      images: [`/og-${lang}.png`],
     },
+  };
+}
+
+/**
+ * Structured data. Deliberately conservative: it asserts only what is verified
+ * — the name, the city, the logo, the languages, and the four social profiles.
+ * No phone, email, opening hours, price range or street address, because those
+ * are not known and inventing them would be worse than omitting them.
+ */
+function jsonLd(lang: Locale) {
+  const t = DICTIONARIES[lang];
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE}/#organization`,
+        name: "Hanga Macrame",
+        url: SITE,
+        description: t.htmlDescription,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE}/icon-512.png`,
+          width: 512,
+          height: 512,
+        },
+        image: `${SITE}/og-${lang}.png`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Cluj-Napoca",
+          addressCountry: "RO",
+        },
+        knowsLanguage: ["en", "ro", "hu"],
+        sameAs: LINKS.map((l) => l.href),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE}/#website`,
+        url: SITE,
+        name: "Hanga Macrame",
+        inLanguage: lang,
+        publisher: { "@id": `${SITE}/#organization` },
+      },
+    ],
   };
 }
 
@@ -86,7 +132,15 @@ export default async function RootLayout({
       lang={lang}
       className={`${fraunces.variable} ${karla.variable} ${spaceMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd(lang as Locale)),
+          }}
+        />
+      </body>
     </html>
   );
 }
