@@ -82,4 +82,7 @@ export const GBP = {
   locality: "Cluj-Napoca",
   country: "RO",
   telephone: "+40754336703",
+  /** Identical every day on the profile, so one specification covers the week. */
+  opens: "09:00",
+  closes: "22:00",
 } as const;

@@ -112,6 +112,20 @@ function jsonLd(lang: Locale) {
           addressCountry: GBP.country,
         },
         telephone: GBP.telephone,
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: GBP.opens,
+          closes: GBP.closes,
+        },
         geo: {
           "@type": "GeoCoordinates",
           latitude: GBP.lat,
