@@ -46,3 +46,33 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # Push the new URLs to Bing rather than waiting to be crawled. Bing backs
+  # ChatGPT's web search, so faster Bing indexing feeds AI visibility too.
+  #
+  # continue-on-error on purpose: this is a notification, not part of shipping
+  # the site. A hiccup at Bing must never turn a green deploy red.
+  notify-indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Ping IndexNow
+        run: |
+          code=$(curl -sS -o /tmp/out.txt -w '%{http_code}' \
+            -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "host": "hangamacrame.com",
+              "key": "06d92489a1410183d9b831cf2e40a477",
+              "keyLocation": "https://hangamacrame.com/06d92489a1410183d9b831cf2e40a477.txt",
+              "urlList": [
+                "https://hangamacrame.com/en/",
+                "https://hangamacrame.com/ro/",
+                "https://hangamacrame.com/hu/"
+              ]
+            }')
+          echo "IndexNow responded $code"
+          cat /tmp/out.txt || true
+          # 200 accepted, 202 accepted-pending-key-validation. Anything else is
+          # informational only — see continue-on-error above.
