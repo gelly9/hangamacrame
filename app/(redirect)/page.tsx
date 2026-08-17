@@ -10,6 +10,10 @@ export default function RootRedirect() {
       <script
         dangerouslySetInnerHTML={{ __html: `location.replace("/en/");` }}
       />
+      {/* Deliberately a plain <a>, not next/link: this stub exists for the
+          no-JS case, and it crosses into a different root layout, so a
+          client-side transition is the wrong behaviour here. */}
+      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       <a href="/en/" style={{ color: "#ede6da" }}>
         Continue to hangamacrame.com
       </a>

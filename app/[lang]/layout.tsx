@@ -216,6 +216,9 @@ export default async function RootLayout({
             the proxy: the DNS records are grey-cloud so GitHub can hold the TLS
             certificate, which means Cloudflare never sees the HTML. No cookies,
             so no consent banner is needed. The token is public by design. */}
+        {/* type="module" is deferred by spec, so this is not actually a
+            render-blocking sync script — the rule does not account for it. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
